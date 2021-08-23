@@ -1,7 +1,5 @@
 package Exercise;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 /**
  * @author zfc
  * @create 2021-08-23 14:31
@@ -9,7 +7,6 @@ import java.util.concurrent.locks.ReentrantLock;
 
 class Person extends Thread{
     private static int count=0;
-    private ReentrantLock lock=new ReentrantLock();
     private int i=0;
     @Override
     public void run() {
@@ -22,7 +19,7 @@ class Person extends Thread{
                     System.out.println(Thread.currentThread().getName()+" 账户余额为："+count);
                     i++;
                     try {
-                        sleep(10);
+                        sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
