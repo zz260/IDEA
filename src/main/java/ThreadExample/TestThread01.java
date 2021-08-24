@@ -29,7 +29,7 @@ public class TestThread01 {
         MyThread2 t2 = new MyThread2();
         t2.start();
         // Thread 的匿名子类（第一种的简写）
-        new Thread(){
+        new Thread() {
             @Override
             public void run() {
                 System.out.println("玩耍ing");

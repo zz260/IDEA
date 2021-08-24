@@ -15,6 +15,13 @@ package ThreadExample;
  * 2、这三个方法的调用者必须是同步代码块或者同步方法中的同步监视器
  *      否则会出现IllegalMonitorStateException异常
  * 3、这三个方法是定义在java.lang.Object类中
+ *
+ *
+ * 面试题 谈谈wait()和sleep()的异同：
+ * 答：1、相同点：一旦执行方法，都可以使当前线程处于拥塞状态
+ *     2、不同点：1)两个方法声明位置不同：Thread类中声明sleep(),Object类声明wait()
+ *               2)调用的要求不同：sleep()可以再任何需要的场景下调用。wait（）必须在同步代码块或同步方法中
+ *               3)关于是否释放同步监视器：如果两个方法都使用在同步代码块或同步方法中，sleep()不会释放锁，wait()会释放锁
  */
 
 class Connect implements Runnable{
