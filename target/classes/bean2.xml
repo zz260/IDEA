@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+
+    <!--外部属性文件配置-->
+  <!--  <context:property-placeholder location="classpath:jdbc.properties" ></context:property-placeholder>-->
+    <!--配置连接池-->
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="${prop.driverClass}"></property>-->
+<!--        <property name="url" value="${prop.url}"></property>-->
+<!--        <property name="username" value="${prop.username}"></property>-->
+<!--        <property name="password" value="${prop.password}"></property>-->
+<!--    </bean>-->
+
+<!--    开启组件扫描
+        1、如果扫描多个包，就可以使用，隔开；也可以写其上一层的目录
+
+-->
+    <context:component-scan base-package="com.zfc.spring5.service"></context:component-scan>
+
+    <!--扫描com.zfc.spring5包下的controller注解的所有内容-->
+    <context:component-scan base-package="com.zfc.spring5" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:include-filter>
+    </context:component-scan>
+
+
+    <!--扫描com.zfc.spring5包下除了controller注解以外的所有内容-->
+    <context:component-scan base-package="com.zfc.spring5" use-default-filters="true">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:exclude-filter>
+    </context:component-scan>
+</beans>

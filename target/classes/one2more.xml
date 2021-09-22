@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--内部bean-->
+    <bean id="employ1" class="com.zfc.spring5.service.Employ">
+        <property name="eName" value="张富成"></property>
+        <property name="eSex" value="男"></property>
+        <property name="dept">
+            <bean id="dept1" class="com.zfc.spring5.service.Dept">
+                <property name="dName" value="信息中心"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="employ2" class="com.zfc.spring5.service.Employ">
+        <property name="eName" value="黄涛"></property>
+        <property name="eSex" value="男"></property>
+        <property name="dept">
+            <bean id="dept1" class="com.zfc.spring5.service.Dept">
+                <property name="dName" value="信息中心"></property>
+            </bean>
+        </property>
+    </bean>
+
+<!--    级联注入-->
+    <bean id="dept" class="com.zfc.spring5.service.Dept">
+        <property name="dName" value="信息中心"></property>
+    </bean>
+    <bean id="employ3" class="com.zfc.spring5.service.Employ">
+        <property name="eName" value="王戴文"></property>
+        <property name="eSex" value="女"></property>
+        <property name="dept" ref="dept"></property>
+        <property name="dept.dName" value="信息中心2"></property>
+    </bean>
+</beans>

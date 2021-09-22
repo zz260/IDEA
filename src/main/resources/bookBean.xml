@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:list id="bName">
+        <value>夸张</value>
+        <value>屁话</value>
+        <value>悲观</value>
+    </util:list>
+
+    <bean id="book" class="com.zfc.spring5.dto.Book">
+        <property name="bName" ref="bName"></property>
+    </bean>
+<!-- scope属性设置单实例还是多实例
+        singleton是单实例（默认），加载spring配置文件时创建单实例对象
+        prototype是多实例对象，在调用getbean方法时创建多实例对象
+-->
+    <bean id="mybean" class="com.zfc.spring5.service.MyBean" scope="singleton">
+
+    </bean>
+</beans>

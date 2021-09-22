@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--
+    实现自动装配的方式有2种：
+    1、bean标签属性autowire，配置自动装配
+    autowire属性常用的有2个值：
+        byName 根据属性名称注入，注入值bean的id值和类属性名必须一样，
+        byType 根据属性类型注入，注意：相同类型只能有一个
+-->
+    <bean id="parent1" class="com.zfc.spring5.controller.parent">
+        <property name="pName" value="zam"></property>
+    </bean>
+    <bean id="person" class="com.zfc.spring5.controller.person" autowire="byName">
+    </bean>
+</beans>
